@@ -58,6 +58,14 @@
   )
   )
 
+(defun process-buffer-at-point ()
+  (interactive)
+  (let ((point (point)))
+  (color-buffer 1 (parse-sentence (buffer-substring-no-properties 1 (buffer-size))))
+  (goto-char point)
+  )
+  )
+
 (defun process-word-at-point ()
   (interactive)
   (let ((point (point)))
@@ -66,7 +74,6 @@
     (goto-char point)
     )
   )
-
 ;(add-hook 'before-change-functions (lambda (x y) (process-sentence-at-point)))
 
 ;;Faces
